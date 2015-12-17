@@ -1,7 +1,7 @@
 # GCDBackupReader
 RecordReadChannel implementation for BlobstoreService
 
-```
+```java
 final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 final BlobKey blobKey = blobstoreService.createGsBlobKey("/gs/" + bucket + "/" + pathToOutputFile);
 
