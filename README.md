@@ -6,7 +6,6 @@ final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreSe
 final BlobKey blobKey = blobstoreService.createGsBlobKey("/gs/" + bucket + "/" + pathToOutputFile);
 
 final RecordReadChannel rrc = BlobserviceHelper.openRecordReadChannel(blobKey, blobstoreService);
-final DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 ByteBuffer bf;
 while ((bf = rrc.readRecord()) != null) {
@@ -14,5 +13,6 @@ while ((bf = rrc.readRecord()) != null) {
   proto.mergeFrom(bf.array());
   final Entity entity = EntityTranslator.createFromPb(proto);
   entity.removeProperty(""); // Remove empty property
+  //Now you can save entity to datastore or read keys and properties
 }
 ```
