@@ -1,6 +1,7 @@
 # GCDBackupReader
 RecordReadChannel implementation for BlobstoreService
 
+```
 final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 final BlobKey blobKey = blobstoreService.createGsBlobKey("/gs/" + bucket + "/" + pathToOutputFile);
 
@@ -14,3 +15,4 @@ while ((bf = rrc.readRecord()) != null) {
   final Entity entity = EntityTranslator.createFromPb(proto);
   entity.removeProperty(""); // Remove empty property
 }
+```
